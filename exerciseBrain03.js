@@ -4,7 +4,7 @@ var name1 = name.split('')
 
 var temp = []
 for(var i = 0; i < name1.length; i++){
-    if (!temp.includes(name1[i])) {
+    if (temp.indexOf(name1[i])) {
         temp.push(name1[i])
     }
 }
