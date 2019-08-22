@@ -1,0 +1,25 @@
+/**
+Buatlah sebuah algoritma untuk kasus berikut:
+Seorang pengajar sedang memeriksa ujian mahasiswa dan akan memberikan desc nilai dari A-E dengan ketentuan sebagai berikut:
+ - Nilai 80 - 100: A
+ - Nilai 65 - 79: B
+ - Nilai 50 - 64: C
+ - Nilai 35 - 49: D
+ - Nilai 0 - 34: E
+
+ Tampilkan desc nilai dan nama siswa saat pengajar tersebut memasukkan nilai dan nama yang dia inginkan.
+
+NOTED:
+Jika nilai mahasiswa kurang dari 0 atau lebih dari 100 maka tampilkan 'Nilai Invalid'
+**/
+
+--algoritma--
+1. buat variabel 'nilaiInput' dengan value berapapun
+2. jika 'nilaiInput' kurang dari 0 atau lebih dari 100, tampilkan 'Nilai Invalid', jika tidak lanjut step berikutnya
+3. jika 'nilaiInput' kurang dari sama dengan 100 dan lebih dari sama dengan 80, tampilkan 'A', jika tidak lanjut step berikutnya
+4. jika 'nilaiInput' kurang dari sama dengan 79 dan lebih dari sama dengan 65, tampilkan 'B', jika tidak lanjut step berikutnya
+5. jika 'nilaiInput' kurang dari sama dengan 64 dan lebih dari sama dengan 50, tampilkan 'C', jika tidak lanjut step berikutnya
+6. jika 'nilaiInput' kurang dari sama dengan 49 dan lebih dari sama dengan 35, tampilkan 'D', jika tidak lanjut step berikutnya
+7. jika 'nilaiInput' kurang dari sama dengan 34 dan lebih dari sama dengan 0, tampilkan 'E',
+
+
