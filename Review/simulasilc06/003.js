@@ -2,7 +2,10 @@
 Minimum Distance Between Greatest Element
 
 
-Diberikan sebuah function minDistanceBetweenGreatest yang menerima sebuah parameter array of number. Dimana array tersebut akan memiliki nilai terbesar yang kemunculannya bisa lebih dari satu kali. Tentukan minimum jarak antara nilai terbesar satu ke nilai terbesar lainnya.
+Diberikan sebuah function minDistanceBetweenGreatest yang 
+menerima sebuah parameter array of number. Dimana array tersebut 
+akan memiliki nilai terbesar yang kemunculannya bisa lebih dari satu kali. 
+Tentukan minimum jarak antara nilai terbesar satu ke nilai terbesar lainnya.
 
 Contoh 1:
 Input : [ 3, 5, 2, 3, 5, 3, 5 ]
@@ -10,7 +13,7 @@ Output : 2
 
 Karena nilai terbesar dari array tersebut adalah 5 dan indeksnya adalah 1, 4 dan 6
 - indeks 1 ke indeks 4, jaraknya adalah 3
-- indeks 4 ke indeks 6, jaraknya adalah 2 
+- indeks 4 ke indeks 6, jaraknya adalah 2
 
 Jadi minimum jarak adalah 2
 
@@ -35,6 +38,7 @@ RULE:
 
 function minDistanceBetweenGreatest(arr) {
   // your code here
+  
 }
 
 console.log(minDistanceBetweenGreatest([ 3, 5, 2, 3, 5, 3, 5 ])); //2

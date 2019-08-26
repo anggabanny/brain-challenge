@@ -41,48 +41,70 @@ Urutan satuan waktu dari terbesar ke terkecil:
 */
 
 function formatDuration(seconds) {
-obj = {
-  tahun : 0,
-  bulan :0,
-  hari : 0,
-  jam : 0,
-  menit : 0,
-  detik : 0,
-}
-var menit = 60
-var jam = menit*60
-var hari = jam*24
-var bulan = hari*31
-var tahun = bulan*12
-for (let i=0 ; i<=seconds; i++){
-  if (seconds>=tahun){
-    obj.tahun +=1
-    seconds-=tahun
-  }  if (seconds>=bulan && seconds<tahun){
-    obj.bulan +=1
-    seconds-=bulan
-  }   if (seconds>=hari && seconds<bulan){
-    obj.hari +=1
-    seconds-=hari
-  }  if (seconds>=jam && seconds<hari){
-    obj.jam +=1
-    seconds-=jam
-  }  if (seconds>=menit && seconds<jam){
-    obj.menit +=1
-    seconds-=menit
-  }  if (seconds>=1 && seconds<menit){
-    obj.detik +=seconds
+  if (seconds == 0) {
+    return 'Sekarang'
   }
+  var detik = seconds%60
+  var menit = Math.floor((seconds/60)%60)
+  var jam = Math.floor(((seconds/60)/60)%24)
+  var hari = Math.floor((((seconds/60)/60)/24)%365)
+  var tahun = Math.floor((((seconds/60)/60)/24)/365)
+
+  return check(tahun,hari,jam,menit,detik)
 }
-console.log('>>>>>')
-return obj
+
+function check(tahun,hari,jam,menit,detik) {
+  var output = {
+    'tahun' : tahun + ' tahun ',
+    'hari' : hari + ' hari, ',
+    'jam' : jam+ ' jam, ',
+    "menit": menit+ ' menit',
+    "detik" : ' dan '+ detik +' detik'
+  }
+  if (tahun == 0) {
+    delete output['tahun']
+  } else if (tahun > 0){
+    if (detik >= 60) {
+      delete output['detik']
+    }
+    if (menit >= 60) {
+      delete output['menit']
+    } else {
+      output['menit'] = 'dan '+ menit + ' menit'
+    }
+    if (jam >= 24) {
+      delete output['jam']
+    }
+
+  }
+  if (detik == 0) {
+    delete output['detik']
+  }
+  if (menit == 0) {
+    delete output['menit']
+  }
+
+  if (jam == 0) {
+    delete output['jam']
+  }
+
+  if (hari == 0) {
+    delete output['hari']
+  }
+
+
+  var temp = ''
+  for(var i in output){
+    temp += output[i]
+  }
+  return temp
 }
 
 console.log(formatDuration(10000)); // 2 jam, 46 menit dan 40 detik
-// console.log(formatDuration(3662)); // 1 jam, 1 menit dan 2 detik
-// console.log(formatDuration(62)); // 1 menit dan 2 detik
-// console.log(formatDuration(500000)); // 5 hari, 18 jam, 53 menit dan 20 detik
+console.log(formatDuration(3662)); // 1 jam, 1 menit dan 2 detik
+console.log(formatDuration(62)); // 1 menit dan 2 detik
+console.log(formatDuration(500000)); // 5 hari, 18 jam, 53 menit dan 20 detik
 console.log(formatDuration(2000000)); // 23 hari, 3 jam, 33 menit dan 20 detik
-//console.log(formatDuration(94608000)); // 3 tahun
+console.log(formatDuration(94608000)); // 3 tahun
 console.log(formatDuration(126144060)); // 4 tahun dan 1 menit
-// console.log(formatDuration(0)); // Sekarang
+console.log(formatDuration(0)); // Sekarang
