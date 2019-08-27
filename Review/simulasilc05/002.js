@@ -24,23 +24,29 @@ RULE:
 
 */
 /*PSEUDOCODE
-  STORE COUNTER WITH  0
-  STORE TOTAL BARANG WITH 0
-  SORT GIFTS WITH NILAI TERKECIL KE NILAI TERBESAR
-  STORE URUTAN BARANG WITH RESULT SORT GIFTS
-
-  WHILE MAX BUDGET >= URUTAN BARANG[COUNTER]
-    DO MAX BUDGET = MAX BUDGET - URUTAN BARANG [COUNTER]
-    DO TOTAL BARANG = TOTAL BARANG + 1
-    DO COUNTER = COUNTER + 1
-
-
-  RETURN TOTAL BARANG
 */
 
 function howManyGifts(maxBudget, gifts){
   // Code here
+  for(var i = 0 ; i < gifts.length; i++ ){
+    for(var j = 0 ; j < gifts.length; j++ ){
+      if(gifts[j] > gifts[j+1]){
+        var temp = gifts[j]
+        gifts[j] = gifts[j+1]
+        gifts[j+1] = temp
+      }
+    }
+  }
 
+  var count = 0
+  for(var i = 0 ; i < gifts.length;i++){
+    if (maxBudget >= gifts[i]) {
+      maxBudget = maxBudget - gifts[i]
+      count++
+    }
+  }
+
+  return count
 }
 
 console.log(howManyGifts(30000, [15000, 12000, 5000, 3000, 10000])); // 4

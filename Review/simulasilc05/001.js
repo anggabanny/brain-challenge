@@ -58,9 +58,15 @@ RULE:
 */
 
 function getUglyNumber(num) {
- 
+  console.log(num);
+  var temp = []
+  for(var i = 2 ; i <= num; i++){
+    if (i % 2 ==0 || i % 3 == 0 || i % 5 == 0) {
+      temp.push(i)
+    }
+  }
+  return temp
 }
-
 console.log(getUglyNumber(10)); //[ 2, 3, 4, 5, 6, 8, 9, 10 ]
 console.log(getUglyNumber(20)); //[ 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20 ]
 console.log(getUglyNumber(4)); //[ 2, 3, 4]

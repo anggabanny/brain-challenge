@@ -14,7 +14,27 @@ WAJIB menggunakan metode rekursif!
 */
 
 function operationEvaluator(operation) {
-  // only code here...
+  var angka = [1,2,3,4,5,6,7,8,9,0]
+  var operasi = operation.op
+
+  if (angka.indexOf(operation.right) != -1) {
+    switch (operasi) {
+      case '-': { var yuk = operation.left - operation.right ;break;}
+      case '+': { var yuk = operation.left + operation.right ;break;}
+      case '*': { var yuk = operation.left * operation.right ;break;}
+      case '/': { var yuk = operation.left / operation.right ;break;}
+    }
+    return yuk
+  } else {
+    switch (operasi) {
+      case '-': { var yuk = operation.left - operationEvaluator(operation.right) ;break;}
+      case '+': { var yuk = operation.left + operationEvaluator(operation.right) ;break;}
+      case '*': { var yuk = operation.left * operationEvaluator(operation.right) ;break;}
+      case '/': { var yuk = operation.left / operationEvaluator(operation.right) ;break;}
+    }
+
+    return yuk
+  }
 }
 
 

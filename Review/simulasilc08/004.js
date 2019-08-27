@@ -36,40 +36,45 @@ NOTE:
 
 
 function squareNumber(num) {
-  var newArr = []
-  var counter = 1
-  var result = []
-  for (let i = 0; i < num; i++) {
-    for (let j = 0; j < num; j++) {
-      newArr.push(counter)
-      counter++
+  if (num < 3) {
+    return 'Minimal input adalah 3'
+  }
+
+  var output = []
+  var count = 1
+  var test = 1
+  for(var i = 0 ; i < num; i++){
+    var temp = []
+    for(var j = 0 ; j < num; j++){
+      temp.push(count)
+      count++
     }
-    // console.log(result)
-    if (i % 2 === 0) {
-      result.push(newArr)
-      newArr = []
+    if (test % 2 == 0) {
+      temp.reverse()
+      output.unshift(temp)
+      test++
     } else {
-      result.push(newArr.reverse())
-      newArr = []
+      output.unshift(temp)
+      test++
     }
   }
-  return result
+  return output
 }
 
 console.log(squareNumber(3));
 // [ [ 7, 8, 9 ], [ 6, 5, 4 ], [ 1, 2, 3 ] ]
 
-// console.log(squareNumber(4));
+console.log(squareNumber(4));
 // // [ [ 16, 15, 14, 13 ],
 // //   [ 9, 10, 11, 12 ],
 // //   [ 8, 7, 6, 5 ],
 // //   [ 1, 2, 3, 4 ] ]
 
-// console.log(squareNumber(5));
+console.log(squareNumber(5));
 // // [ [ 21, 22, 23, 24, 25 ],
 // //   [ 20, 19, 18, 17, 16 ],
 // //   [ 11, 12, 13, 14, 15 ],
 // //   [ 10, 9, 8, 7, 6 ],
 // //   [ 1, 2, 3, 4, 5 ] ]
 
-// console.log(squareNumber(2)); // Minimal input adalah 3
+console.log(squareNumber(2)); // Minimal input adalah 3

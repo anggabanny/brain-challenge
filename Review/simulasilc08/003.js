@@ -13,27 +13,21 @@ RULES:
 */
 
 function countSolo(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 0; j < numbers.length; j++) {
-      if (numbers[i] < numbers[j]) {
-        var temp;
-        temp = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = temp;
-      }
+  var obj = {}
+  for(var i = 0 ; i < numbers.length; i++){
+    if (!obj[numbers[i]]) {
+      obj[numbers[i]] = [numbers[i]]
+    } else {
+      obj[numbers[i]].push(numbers[i])
     }
   }
-  var numSama = [];
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] !== numbers[i + 1] && numbers[i] !== numbers[i-1]) {
-        numSama.push(numbers[i])
+  var total = 0
+  for(var i in obj){
+    if (obj[i].length == 1) {
+      total+=Number(i)
     }
   }
-  var result = 0;
-  for (let j = 0; j < numSama.length; j++) {
-      result += numSama[j]
-  }
-  return result
+  return total
 }
 
 console.log(countSolo([ 5, 5, 6, 6, 3, 1, 2, 7, 7])) // 6

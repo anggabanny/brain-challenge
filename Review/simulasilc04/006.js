@@ -17,6 +17,16 @@ hanya sisa baginya nol dari bilangan num
 */
 
 function dividableRecursive (array, num) {
+    var temp = ''
+    if (array.length == 0) {
+        return temp
+    } else {
+        if (Number(array[0]) % num == 0) {
+            temp = array[0]
+        }
+
+        return temp + ' ' + dividableRecursive(array.slice(1), num)
+    }
     
 }
 

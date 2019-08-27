@@ -21,23 +21,36 @@ NOTE: Jika angka terakhir tidak memiliki pasangan, maka pasangkan dengan angka p
 RULES:
  - WAJIB MENGGUNAKAN algoritma/pseudocode, tidak menyertakan algoritma/pseudocode maka codingan dianggap tidak valid
 */
+// ALGORITMA
+// 1. deklarasikan 'temp' sebagai penampung angka yang nantinya di dampingkan, bentuknya[ARRAY]
+// 2. Looping 'str' ke i atau i(0) sampai panjangnya str
+// 3. jika index str ke i ditambah 1 sama dengan undefined atau kosong tidak bernilai, maka masukkan nilai 'str' index ke i dengan str index ke 0 untuk 'temp'
+// 4. jika index str ke i ditambah 1 itu ada atau bernilai, maka tambahkan 'str' index ke i dan 'str' index ke i ditambah 1 untuk 'temp', lalu i ditambah satu (mengasumsikan i ditambah 2)
+// 5. looping 'str' ke i selesai
+// 6. deklarasikan 'total' sebagai penampung nilai yang sudah di jumlahkan, dengan nilai 0
+// 7. looping 'temp' ke j
+// 8. jika temp ke j di modulus 2 sama dengan 0, maka 'total' dijumlah 'temp' ke j
+// 9. looping 'temp' ke j selesai
+// 10. tampilkan total
+
 
 function evenPairsSum (str) {
-  var newArr = [];
-  var result = 0;
-  for (let i = 0; i < str.length; i+=2) {
-      if (i === str.length-1) {
-          newArr.push(str[i]+str[0])
-      } else{
-          newArr.push(str[i]+str[i+1])
-      }
-  }
-  for (let j = 0; j < newArr.length; j++) {
-      if (Number(newArr[j] % 2 === 0)) {
-          result += Number(newArr[j])
-      }
-  }
-  return result
+    var temp = []
+    for(var i = 0 ; i < str.length; i++){
+        if (str[i+1] == undefined) {
+            temp.push(str[i] + str[0])
+        } else {
+            temp.push(str[i] + str[i+1])
+            i++
+        }
+    }
+    var total = 0
+    for(var i = 0 ; i < temp.length; i++){
+        if (Number(temp[i]) % 2 == 0) {
+            total+=Number(temp[i])
+        }
+    }
+    return total
 }
 
 console.log(evenPairsSum('2044101211')); // 86

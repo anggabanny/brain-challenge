@@ -15,28 +15,33 @@
 **/
 
 function hapusSimbolRec(str) {
+  console.log(str);
   var temp = str[0]
-  if (str.length == 0) {
-    return temp = ''
-  } else {
-    switch (str[0]) {
-      case '!':{ temp = '' ;break;}
-      case '@':{ temp = '' ;break;}
-      case '#':{ temp = '' ;break;}
-      case '$':{ temp = '' ;break;}
-      case '%':{ temp = '' ;break;}
-      case '^':{ temp = '' ;break;}
-      case '&':{ temp = '' ;break;}
-      case '*':{ temp = '' ;break;}
-      case '(':{ temp = '' ;break;}
-      case ')':{ temp = '' ;break;}
-      case '-':{ temp = '' ;break;}
-      case '+':{ temp = '' ;break;}
-      case '~':{ temp = '' ;break;}
-      case '=':{ temp = '' ;break;}
-      case ' ':{ temp = '' ;break;}
+  if (str.length == 1) {
+    switch (temp) {
+      case '@':{ temp = '';break;}
+      case ' ':{ temp = '';break;}
+      case '#':{ temp = '';break;}
+      case '!':{ temp = '';break;}
+      case '+':{ temp = '';break;}
+      case '-':{ temp = '';break;}
+      case '*':{ temp = '';break;}
+      case '=':{ temp = '';break;}
+      case '~':{ temp = '';break;}
     }
-
+    return temp
+  } else {
+    switch (temp) {
+      case '@':{ temp = '';break;}
+      case ' ':{ temp = '';break;}
+      case '#':{ temp = '';break;}
+      case '!':{ temp = '';break;}
+      case '+':{ temp = '';break;}
+      case '-':{ temp = '';break;}
+      case '*':{ temp = '';break;}
+      case '=':{ temp = '';break;}
+      case '~':{ temp = '';break;}
+    }
     return temp + hapusSimbolRec(str.slice(1))
   }
 }

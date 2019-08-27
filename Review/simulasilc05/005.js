@@ -30,7 +30,41 @@ Standard kelulusan adalah minimum 70.
 */
 
 function getReport(studentGrades) {
-  
+  var obj = {}
+  for(var i = 0 ; i < studentGrades.length; i++){
+    if (!obj[studentGrades[i].classCode]) {
+      obj[studentGrades[i].classCode] = {}
+    }
+  }
+
+  for(var j in obj){
+    for(var i = 0 ; i < studentGrades.length; i++){
+      if (j == studentGrades[i].classCode ) {
+        obj[j].classCode = studentGrades[i].classCode
+        obj[j].passed = []
+        obj[j].failed = []
+      }
+    }
+  }
+
+  for(var j in obj){
+    for(var i = 0 ; i < studentGrades.length; i++){
+      if(j == studentGrades[i].classCode){
+        if (studentGrades[i].score >= 70) {
+          obj[j].passed.push(studentGrades[i].name)
+        } else{
+          obj[j].failed.push(studentGrades[i].name)
+        }
+      }
+    }
+  }
+
+  var output = []
+  for(var i in obj){
+    output.push(obj[i])
+  }
+
+  return output
 }
 
 var grades1 = [

@@ -17,24 +17,21 @@ function angkaTerbesar(sentence) {
     if (sentence.length == 0) {
         return -1
     }
-
     if (sentence.length == 1) {
-        return temp = sentence[0]
+        return sentence[0]
     } else {
-        if (sentence[0] < sentence[1]) {
-            sentence.splice(0,1)
-            return angkaTerbesar(sentence)
-        } else {
+        if (sentence[0] > sentence[1]) {
             sentence.splice(1,1)
             return angkaTerbesar(sentence)
+        } else if (sentence[0] < sentence[1]) {
+            sentence.splice(0,1)
+            return angkaTerbesar(sentence)
         }
-        
     }
-    
 }
 
 // TEST CASES
 console.log(angkaTerbesar([2, 3, 7, 6, 5])) // 7
 console.log(angkaTerbesar([9, 3, 7, 4, 1])) // 9
-console.log(angkaTerbesar([2, 1, 7, 2, 8])) // 7
+console.log(angkaTerbesar([2, 1, 7, 2, 8])) // 8
 console.log(angkaTerbesar([])) // -1

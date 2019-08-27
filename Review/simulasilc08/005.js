@@ -9,7 +9,25 @@ Contoh input dan output bisa dilihat di test case.
 */
 
 function trainSeating (penumpang) {
-   
+  var obj = {}
+  for(var i = 0 ; i < penumpang.length; i ++){
+    if (!obj[penumpang[i].gerbong]) {
+      obj[penumpang[i].gerbong] = []
+    }
+  }
+
+  for(var j in obj){
+    for(var i = 0 ; i < penumpang.length; i ++){
+      if (j == penumpang[i].gerbong) {
+        var temp = {
+          nama : penumpang[i].nama,
+          seat : penumpang[i].seat
+        }
+        obj[j].push(temp)
+      }
+    }
+  }
+  return obj
 }
 
 

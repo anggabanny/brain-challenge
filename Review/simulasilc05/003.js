@@ -22,29 +22,16 @@ RULES:
 */
 
 /* PSEUDOCODE
-
-STORE COUNTER WITH 0
-STORE COUNTERDALAM WITH 0
-STORE RESULT WITH []
-STORE CONDITION WITH true
-
-WHILE COUNTER < ARR1.Length
-  STORE CONDITION WITH true
-    WHILE COUNTERDALAM < ARR2.Length
-      IF ARR1[COUNTER] == ARR2[COUNTERDALAM]
-        STORE CONDITION WITH false
-      DO COUNTERDALAM = COUNTERDALAM +1
-
-  IF CONDITION == true
-  PUSH RESULT WITH ARR1[COUNTER]
-  DO COUNTER = COUNTER +1
-
-
-RETURN RESULT
 */
 
 function findNotRelative(arr1, arr2) {
-  
+  var temp = []
+  for(var i = 0; i < arr1.length ; i++){
+    if (arr2.indexOf(arr1[i]) == -1) {
+      temp.push(arr1[i])
+    }
+  }
+  return temp
 }
 
 console.log(findNotRelative([ 3, 6, 10, 12, 15 ], [ 1, 3, 5, 10, 16 ])); // [ 6, 12, 15]
